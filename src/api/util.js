@@ -1,8 +1,10 @@
 function buildQueryParams(params) {
-  return Object.keys(params).reduce(
-    (string, key) => string.concat(key, '=', params[key], '&'),
-    '?'
-  );
+  const keys = Object.keys(params);
+  return keys.reduce((string, key, index) => {
+    const needsMoreParams = index !== keys.length - 1;
+    const concatString = needsMoreParams ? '&' : '';
+    return string.concat(key, '=', params[key], concatString);
+  }, '?');
 }
 
 function buildRequest(endpoint) {
@@ -16,4 +18,5 @@ function buildRequest(endpoint) {
   };
 }
 
+export { buildQueryParams };
 export default buildRequest;
