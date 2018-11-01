@@ -31,7 +31,7 @@ class Random extends Component {
         >
           show me another one
         </button>
-        {randomGifData ? <Gif info={randomGifData} /> : <Spinner />}
+        {randomGifData ? <Gif info={randomGifData.data} /> : <Spinner />}
       </div>
     );
   }
