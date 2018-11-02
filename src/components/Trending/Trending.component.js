@@ -15,7 +15,12 @@ class Trending extends Component {
   }
   render() {
     const trendingGifs = this.state.gifs.map(gif => (
-      <Gif key={gif.id} info={gif} />
+      <Gif
+        key={gif.id}
+        info={gif}
+        onFavourite={this.props.onFavourite}
+        favouriteIds={this.props.favouriteIds}
+      />
     ));
     return (
       <div className="trending-section">

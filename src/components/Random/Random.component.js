@@ -31,7 +31,15 @@ class Random extends Component {
         >
           show me another one
         </button>
-        {randomGifData ? <Gif info={randomGifData.data} /> : <Spinner />}
+        {randomGifData ? (
+          <Gif
+            info={randomGifData.data}
+            onFavourite={this.props.onFavourite}
+            favouriteIds={this.props.favouriteIds}
+          />
+        ) : (
+          <Spinner />
+        )}
       </div>
     );
   }
