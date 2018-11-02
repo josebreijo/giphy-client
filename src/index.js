@@ -3,16 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Random from './components/Random';
 import Trending from './components/Trending';
+import Favourites from './components/Favourites';
 import { Router } from '@reach/router';
 import Header from './components/Header';
 
-const Routes = ({ onFavourite, favouriteIds }) => (
+const Routes = ({ onFavourite, favouriteIds, favouriteObjects }) => (
   <Router>
     <Trending path="/" onFavourite={onFavourite} favouriteIds={favouriteIds} />
     <Random
       path="/random"
       onFavourite={onFavourite}
       favouriteIds={favouriteIds}
+    />
+    <Favourites
+      path="/favourites"
+      onFavourite={onFavourite}
+      favouriteIds={favouriteIds}
+      favourites={favouriteObjects}
     />
   </Router>
 );
@@ -47,6 +54,7 @@ export default class App extends React.Component {
         <Routes
           onFavourite={this.onFavourite}
           favouriteIds={this.state.favouriteIds}
+          favouriteObjects={this.state.favouriteObjects}
         />
       </div>
     );
