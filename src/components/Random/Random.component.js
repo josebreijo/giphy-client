@@ -4,6 +4,7 @@ import './Random.css';
 
 import Gif from '../Gif';
 import Spinner from '../Spinner';
+import Button from '../Button';
 
 class Random extends Component {
   state = {
@@ -24,13 +25,9 @@ class Random extends Component {
     const { randomGifData } = this.state;
     return (
       <div className="Random">
-        <button
-          className="Random-button"
-          onClick={this.refreshGif}
-          disabled={!randomGifData}
-        >
+        <Button onClick={this.refreshGif} disabled={!randomGifData}>
           show me another one
-        </button>
+        </Button>
         {randomGifData ? (
           <Gif
             info={randomGifData.data}
