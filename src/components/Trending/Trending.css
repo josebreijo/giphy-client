@@ -1,0 +1,8 @@
+.trending-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+.trending-section > img {
+  max-width: 33.3%;
+  max-height: 300px;
+}

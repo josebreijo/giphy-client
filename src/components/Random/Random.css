@@ -1,0 +1,17 @@
+.Random {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Random > * {
+  margin-bottom: 50px;
+}
+
+.Random-header {
+  color: white;
+  font-family: monospace;
+}

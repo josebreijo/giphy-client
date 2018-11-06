@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { getRandomGif } from '../../api';
-import './App.css';
+import './Random.css';
 
 import Gif from '../Gif';
 import Spinner from '../Spinner';
+import Button from '../Button';
 
-class App extends Component {
+class Random extends Component {
   state = {
     randomGifData: null,
   };
@@ -23,19 +24,22 @@ class App extends Component {
   render() {
     const { randomGifData } = this.state;
     return (
-      <div className="App">
-        <h1 className="App-header">best client ever</h1>
-        <button
-          className="App-button"
-          onClick={this.refreshGif}
-          disabled={!randomGifData}
-        >
+      <div className="Random">
+        <Button onClick={this.refreshGif} disabled={!randomGifData}>
           show me another one
-        </button>
-        {randomGifData ? <Gif info={randomGifData} /> : <Spinner />}
+        </Button>
+        {randomGifData ? (
+          <Gif
+            info={randomGifData.data}
+            onFavourite={this.props.onFavourite}
+            favouriteIds={this.props.favouriteIds}
+          />
+        ) : (
+          <Spinner />
+        )}
       </div>
     );
   }
 }
 
-export default App;
+export default Random;

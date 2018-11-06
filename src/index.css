@@ -9,4 +9,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
+  margin: auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
 }
